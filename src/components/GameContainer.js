@@ -8,9 +8,9 @@ import cards from "../cards.json";
 class GameContainer extends Component {
     state = {
       pieces: [],
-      rowCount: 0,
       score: 0,
       topScore: 0,
+      clicked: []
     };
   
     componentDidMount() {
@@ -25,6 +25,23 @@ class GameContainer extends Component {
       }
       return result;
     }
+
+    handleClick = (e) => {
+      let score = this.state.score;
+      let id = parseInt(e.target.id);
+      let clickedUpdate = this.state.clicked;
+      if (this.state.clicked.indexOf(id) === -1) {
+        alert(id);
+        clickedUpdate.push(id);
+        score++;
+        this.setState({clicked: clickedUpdate, score: score});
+        this.randomizePieces(cards);
+      } else {
+        alert("hey, it's already in the array");
+        this.setState({clicked: clickedUpdate, score: score});
+        this.randomizePieces(cards);
+      }
+    };
   
     render() {
       return (
@@ -36,6 +53,7 @@ class GameContainer extends Component {
           <Hero />
           <PiecesContainer
             pieces={this.state.pieces}  
+            handleClick={this.handleClick}
           />
         </Container>
       );
