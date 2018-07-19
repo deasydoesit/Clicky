@@ -27,19 +27,24 @@ class GameContainer extends Component {
     }
 
     handleClick = (e) => {
-      let score = this.state.score;
       let id = parseInt(e.target.id);
-      let clickedUpdate = this.state.clicked;
+      let score = this.state.score;
+      let clicked = this.state.clicked;
       if (this.state.clicked.indexOf(id) === -1) {
         alert(id);
-        clickedUpdate.push(id);
+        clicked.push(id);
         score++;
-        this.setState({clicked: clickedUpdate, score: score});
-        this.randomizePieces(cards);
+        this.setState({clicked: clicked, score: score});
+        this.setState({pieces: this.randomizePieces(cards)});
       } else {
-        alert("hey, it's already in the array");
-        this.setState({clicked: clickedUpdate, score: score});
-        this.randomizePieces(cards);
+        let topScore = this.state.topScore;
+        if (score > topScore) {
+          this.setState({ topScore: score, score: 0});
+          this.setState({pieces: this.randomizePieces(cards), clicked: []});
+        } else {
+          this.setState({score: 0});
+          this.setState({pieces: this.randomizePieces(cards), clicked: []});
+        }
       }
     };
   
