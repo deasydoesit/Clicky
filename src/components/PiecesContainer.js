@@ -6,7 +6,7 @@ const PiecesContainer = props => (
             {props.pieces.slice(0,4).map(element => {
                 return (
                     <div className="col-sm">
-                        <img id={element.id} key={element.id} src={element.image} className="piece-button" onClick={(e) =>props.handleClick(e)}/>
+                        <img id={element.id} key={element.id} src={element.image} className="piece-button hvr-glow" onClick={(e) =>props.handleClick(e)}/>
                     </div>
                 )
             })}
@@ -15,7 +15,7 @@ const PiecesContainer = props => (
             {props.pieces.slice(4,8).map(element => {
                 return (
                     <div className="col-sm">
-                        <img id={element.id} key={element.id} src={element.image} className="piece-button" onClick={(e) =>props.handleClick(e)}/>
+                        <img id={element.id} key={element.id} src={element.image} className="piece-button hvr-glow" onClick={(e) =>props.handleClick(e)}/>
                     </div>
                 )
             })}
@@ -24,7 +24,7 @@ const PiecesContainer = props => (
             {props.pieces.slice(8,12).map(element => {
                 return (
                     <div className="col-sm">
-                        <img id={element.id} key={element.id} src={element.image} className="piece-button" onClick={(e) =>props.handleClick(e)}/>
+                        <img id={element.id} key={element.id} src={element.image} className="piece-button hvr-glow" onClick={(e) =>props.handleClick(e)}/>
                     </div>
                 )
             })}

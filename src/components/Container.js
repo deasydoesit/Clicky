@@ -1,7 +1,7 @@
 import React from "react";
 
 const Container = props => (
-  <div className={`container${props.fluid ? "-fluid" : ""}`}>
+  <div className="cont-format">
     {props.children}
   </div>
 );
